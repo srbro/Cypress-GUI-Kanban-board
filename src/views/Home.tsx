@@ -1,11 +1,11 @@
 import React from 'react';
 
 import Board from '../components/Board';
-import { Layout, Header, Title, Subtitle, Separator } from './styles';
+import { Container, Header, Title, Subtitle, Separator } from './styles';
 
 function Home() {
   return (
-    <Layout>
+    <Container>
       <Header>
         <Title>Kanban Board</Title>
         <Subtitle>
@@ -17,7 +17,7 @@ function Home() {
       </Header>
       <Separator />
       <Board />
-    </Layout>
+    </Container>
   );
 }
 
