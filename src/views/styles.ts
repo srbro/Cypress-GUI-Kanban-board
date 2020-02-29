@@ -26,7 +26,7 @@ export const Subtitle = styled.h2`
 
 export const Separator = styled.hr`
   margin: 2.4rem 0;
-  border-color: ${colors.dark};
+  border-color: ${colors.black600};
   opacity: 0.2;
   border-width: 0.5px;
   width: 50%;

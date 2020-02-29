@@ -17,7 +17,16 @@ const columns = {
   inProgress: {
     id: 'inProgress',
     title: 'In Progress',
-    tickets: []
+    tickets: [
+      {
+        id: '2',
+        title: 'Do the dishes and clean the kitchen'
+      },
+      {
+        id: '3',
+        title: 'Walk the dog and buy him some treats'
+      }
+    ]
   },
   done: {
     id: 'done',
@@ -30,7 +39,7 @@ function Board() {
   return (
     <Container>
       {Object.values(columns).map(({ id, title, tickets }) => (
-        <Column key={id} id={id} title={title} tickets={tickets} />
+        <Column key={id} columnId={id} title={title} tickets={tickets} />
       ))}
     </Container>
   );

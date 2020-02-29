@@ -31,7 +31,7 @@ export default createGlobalStyle`
     word-wrap: break-word;
     font-kerning: normal;
     font-size: 16px;
-    color: ${colors.dark}
+    color: ${colors.black600}
   }
 
   h1 {

@@ -1,26 +1,12 @@
 import styled from 'styled-components';
-import colors from '../../styles/colors';
-
-function getHeaderColor(id: string): string {
-  if (id === 'todo') return colors.blue;
-  if (id === 'inProgress') return colors.red;
-  if (id === 'done') return colors.dark;
-  return colors.white;
-}
-
-function getBodyColor(id: string): string {
-  if (id === 'todo') return colors.bgBlue;
-  if (id === 'inProgress') return colors.bgRed;
-  if (id === 'done') return colors.bgDark;
-  return colors.white;
-}
+import colors, { getColumnColor } from '../../styles/colors';
 
 type HeaderProps = {
-  id: string;
+  columnId: string;
 };
 
 type BodyProps = {
-  id: string;
+  columnId: string;
 };
 
 export const Container = styled.div`
@@ -30,19 +16,42 @@ export const Container = styled.div`
 `;
 
 export const Header = styled.div`
+  position: relative;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.4);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${({ id }: HeaderProps) => getHeaderColor(id)};
   padding: 1.6rem 4.8rem;
   margin-bottom: 0.4rem;
+  background-color: ${({ columnId }: HeaderProps) =>
+    getColumnColor(columnId, 600)};
+`;
+
+export const AddTicketButton = styled.button`
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: ${colors.white};
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0.8rem;
+  font-size: 2.4rem;
+  font-weight: bold;
+  padding: 0.8rem;
+  cursor: pointer;
 `;
 
 export const Title = styled.h2`
-  font-weight: bold;
   margin-bottom: 0.4rem;
+  white-space: nowrap;
+  font-weight: bold;
+`;
+
+export const TicketCount = styled.div`
+  font-size: 1.5rem;
+  font-weight: bold;
 `;
 
 export const Body = styled.div`
@@ -52,5 +61,6 @@ export const Body = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 1.6rem;
-  background-color: ${({ id }: BodyProps) => getBodyColor(id)};
+  background-color: ${({ columnId }: BodyProps) =>
+    getColumnColor(columnId, 200)};
 `;
