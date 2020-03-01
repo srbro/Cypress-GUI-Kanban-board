@@ -1,6 +1,7 @@
 import React from 'react';
 
-import Board from '../components/Board';
+import Board from '../../components/Board';
+
 import { Container, Header, Title, Subtitle, Separator } from './styles';
 
 function Home() {

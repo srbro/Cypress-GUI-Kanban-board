@@ -25,7 +25,7 @@ function Column({ columnId, title, tickets }: Props) {
   const dispatch = useDispatch();
   const [draggedOver, setDraggedOver] = useState<boolean>(false);
 
-  const handleCreateClick = (): void => {
+  const handleCreateTicket = (): void => {
     dispatch(createTicket(columnId));
   };
 
@@ -62,12 +62,14 @@ function Column({ columnId, title, tickets }: Props) {
       onDragOver={onDragOver}
       onDragLeave={onDragLeave}
       onDrop={onDrop}
+      data-testid="column"
     >
       <Header columnId={columnId}>
         <AddTicketButton
           type="button"
           aria-label="Add new ticket"
-          onClick={handleCreateClick}
+          onClick={handleCreateTicket}
+          data-testid="add-ticket-button"
         >
           +
         </AddTicketButton>

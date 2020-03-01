@@ -21,7 +21,7 @@ function Ticket({ columnId, ticketId, text }: Props) {
   const [isEditable, setIsEditable] = useState<boolean>(text ? false : true);
   const [textValue, setTextValue] = useState<string>(text);
 
-  const handleDeleteClick = (): void => {
+  const handleDeleteTicket = (): void => {
     dispatch(deleteTicket(ticketId));
   };
 
@@ -55,11 +55,13 @@ function Ticket({ columnId, ticketId, text }: Props) {
         columnId={columnId}
         onDoubleClick={handleDoubleClick}
         ref={ticketRef}
+        data-testid="ticket"
       >
         <DeleteTicketButton
           type="button"
           aria-label="Remove a ticket"
-          onClick={handleDeleteClick}
+          onClick={handleDeleteTicket}
+          data-testid="delete-ticket-button"
         >
           <span>&#x2715;</span>
         </DeleteTicketButton>

@@ -7,7 +7,7 @@ import { Container } from './styles';
 function Board() {
   const columns = useSelector(state => state);
   return (
-    <Container>
+    <Container data-testid="board">
       {Object.values(columns).map(({ id, title, tickets }) => (
         <Column key={id} columnId={id} title={title} tickets={tickets} />
       ))}
