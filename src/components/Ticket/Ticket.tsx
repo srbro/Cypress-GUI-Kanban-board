@@ -5,6 +5,7 @@ import useClickAway from '../../hooks/useClickAway';
 import { deleteTicket, updateTicket } from '../../store/actions';
 
 import UpdateTicket from '../UpdateTicket';
+import Draggable from '../Draggable';
 
 import { Container, DeleteTicketButton } from './styles';
 
@@ -17,14 +18,14 @@ type Props = {
 function Ticket({ columnId, ticketId, text }: Props) {
   const ticketRef = useRef<any>(null);
   const dispatch = useDispatch();
-  const [isEditable, setIsEditable] = useState(text ? false : true);
+  const [isEditable, setIsEditable] = useState<boolean>(text ? false : true);
   const [textValue, setTextValue] = useState<string>(text);
 
   const handleDeleteClick = (): void => {
-    dispatch(deleteTicket(columnId, ticketId));
+    dispatch(deleteTicket(ticketId));
   };
 
-  const handleDoubleClick = () => {
+  const handleDoubleClick = (): void => {
     setIsEditable(true);
   };
 
@@ -42,31 +43,39 @@ function Ticket({ columnId, ticketId, text }: Props) {
     !isEditable
   );
 
+  const dragData: string = JSON.stringify({
+    originColumnId: columnId,
+    ticketId,
+    text
+  });
+
   return (
-    <Container
-      columnId={columnId}
-      onDoubleClick={handleDoubleClick}
-      ref={ticketRef}
-    >
-      <DeleteTicketButton
-        type="button"
-        aria-label="Remove a ticket"
-        onClick={handleDeleteClick}
+    <Draggable dragData={dragData}>
+      <Container
+        columnId={columnId}
+        onDoubleClick={handleDoubleClick}
+        ref={ticketRef}
       >
-        <span>&#x2715;</span>
-      </DeleteTicketButton>
-      {isEditable ? (
-        <UpdateTicket
-          columnId={columnId}
-          ticketId={ticketId}
-          textValue={textValue}
-          setTextValue={setTextValue}
-          setIsEditable={setIsEditable}
-        />
-      ) : (
-        text
-      )}
-    </Container>
+        <DeleteTicketButton
+          type="button"
+          aria-label="Remove a ticket"
+          onClick={handleDeleteClick}
+        >
+          <span>&#x2715;</span>
+        </DeleteTicketButton>
+        {isEditable ? (
+          <UpdateTicket
+            columnId={columnId}
+            ticketId={ticketId}
+            textValue={textValue}
+            setTextValue={setTextValue}
+            setIsEditable={setIsEditable}
+          />
+        ) : (
+          text
+        )}
+      </Container>
+    </Draggable>
   );
 }
 

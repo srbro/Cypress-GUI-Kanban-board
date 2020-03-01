@@ -7,6 +7,7 @@ type HeaderProps = {
 
 type BodyProps = {
   columnId: string;
+  draggedOver: boolean;
 };
 
 export const Container = styled.div`
@@ -16,6 +17,11 @@ export const Container = styled.div`
   width: 100%;
 
   color: ${colors.white};
+`;
+
+export const Separator = styled.div`
+  display: block;
+  height: 0.8rem;
 `;
 
 export const Header = styled.div`
@@ -73,6 +79,9 @@ export const Body = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 1.6rem;
+  overflow: visible;
+  transition: all 0.2s;
   background-color: ${({ columnId }: BodyProps) =>
     getColumnColor(columnId, 200)};
+  opacity: ${({ draggedOver }: BodyProps) => (draggedOver ? '0.75' : '1')};
 `;

@@ -19,10 +19,6 @@ export const Container = styled.div`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-
-  &:not(:last-child) {
-    margin-bottom: 0.8rem;
-  }
 `;
 
 export const DeleteTicketButton = styled.button`

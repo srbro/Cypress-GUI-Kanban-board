@@ -30,7 +30,7 @@ export default function(
 ): StateModel {
   switch (action.type) {
     case CREATE_TICKET:
-      const { columnId } = action.payload;
+      const { columnId, text } = action.payload;
       return {
         ...state,
         [columnId]: {
@@ -38,14 +38,18 @@ export default function(
           tickets: [
             {
               id: uuid(),
-              text: ''
+              text
             },
             ...state[columnId].tickets
           ]
         }
       };
     case DELETE_TICKET: {
-      const { columnId, ticketId } = action.payload;
+      const { ticketId } = action.payload;
+      const { id: columnId } = Object.values(state).find(column =>
+        column.tickets.find((ticket: TicketModel) => ticket.id === ticketId)
+      );
+
       return {
         ...state,
         [columnId]: {

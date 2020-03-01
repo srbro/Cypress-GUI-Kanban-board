@@ -1,19 +1,19 @@
 import { CREATE_TICKET, DELETE_TICKET, UPDATE_TICKET } from './types';
 
-export function createTicket(columnId: string) {
+export function createTicket(columnId: string, text: string = '') {
   return {
     type: CREATE_TICKET,
     payload: {
-      columnId
+      columnId,
+      text
     }
   };
 }
 
-export function deleteTicket(columnId: string, ticketId: string) {
+export function deleteTicket(ticketId: string) {
   return {
     type: DELETE_TICKET,
     payload: {
-      columnId,
       ticketId
     }
   };
