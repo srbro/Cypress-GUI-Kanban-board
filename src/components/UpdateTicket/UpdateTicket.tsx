@@ -47,7 +47,7 @@ function UpdateTicket({
     <Textarea
       placeholder="Add your text here"
       onKeyDown={handleEnterKey}
-      value={textValue}
+      value={textValue === '[Empty ticket]' ? '' : textValue}
       onChange={handleChange}
       inputRef={textareaRef}
     />

@@ -21,6 +21,8 @@ function Ticket({ columnId, ticketId, text }: Props) {
   const [isEditable, setIsEditable] = useState<boolean>(text ? false : true);
   const [textValue, setTextValue] = useState<string>(text);
 
+  console.log(textValue);
+
   const handleDeleteTicket = (): void => {
     dispatch(deleteTicket(ticketId));
   };
