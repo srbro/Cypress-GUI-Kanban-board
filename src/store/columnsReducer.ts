@@ -1,41 +1,33 @@
-import { CREATE_TICKET, DELETE_TICKET, UPDATE_TICKET } from './types';
-import { ColumnModel, TicketModel, ActionModel } from '../models';
 import { uuid } from 'uuidv4';
 
-type State = {
-  toDo: ColumnModel;
-  inProgress: ColumnModel;
-  done: ColumnModel;
-  [key: string]: any;
-};
+import { CREATE_TICKET, DELETE_TICKET, UPDATE_TICKET } from './types';
+import { StateModel, TicketModel, ActionModel } from '../models';
+import { loadState } from './localStorage';
 
-const initialState = {
-  toDo: {
-    id: 'toDo',
-    title: 'To Do',
-    tickets: [
-      {
-        id: '1',
-        text: 'Feed the dog and give him emotions'
+const initialState: StateModel = localStorage.getItem('state')
+  ? loadState()
+  : {
+      toDo: {
+        id: 'toDo',
+        title: 'To Do',
+        tickets: []
+      },
+      inProgress: {
+        id: 'inProgress',
+        title: 'In Progress',
+        tickets: []
+      },
+      done: {
+        id: 'done',
+        title: 'Done',
+        tickets: []
       }
-    ]
-  },
-  inProgress: {
-    id: 'inProgress',
-    title: 'In Progress',
-    tickets: []
-  },
-  done: {
-    id: 'done',
-    title: 'Done',
-    tickets: []
-  }
-};
+    };
 
 export default function(
-  state: State = initialState,
+  state: StateModel = initialState,
   action: ActionModel
-): State {
+): StateModel {
   switch (action.type) {
     case CREATE_TICKET:
       const { columnId } = action.payload;

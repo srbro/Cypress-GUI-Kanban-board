@@ -9,6 +9,13 @@ export type ColumnModel = {
   tickets: TicketModel[];
 };
 
+export type StateModel = {
+  toDo: ColumnModel;
+  inProgress: ColumnModel;
+  done: ColumnModel;
+  [key: string]: any;
+};
+
 export type ActionModel = {
   type: string;
   payload: any;
