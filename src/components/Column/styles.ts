@@ -12,6 +12,9 @@ type BodyProps = {
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  min-width: 23rem;
+  width: 100%;
+
   color: ${colors.white};
 `;
 
@@ -47,16 +50,25 @@ export const Title = styled.h2`
   margin-bottom: 0.4rem;
   white-space: nowrap;
   font-weight: bold;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `;
 
 export const TicketCount = styled.div`
   font-size: 1.5rem;
   font-weight: bold;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 `;
 
 export const Body = styled.div`
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.1);
   min-height: 40rem;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

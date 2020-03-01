@@ -1,8 +1,18 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 0.4rem;
+  display: flex;
   max-width: 75rem;
+  overflow-x: auto;
+  width: 100%;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & > * {
+    &:not(:last-child) {
+      margin-right: 0.4rem;
+    }
+  }
 `;

@@ -14,13 +14,18 @@ export const Container = styled.div`
   position: relative;
   text-align: center;
   max-width: 16rem;
+  min-width: 16rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
   &:not(:last-child) {
     margin-bottom: 0.8rem;
   }
 `;
 
-export const DeleteButton = styled.button`
+export const DeleteTicketButton = styled.button`
   outline: none;
   border: none;
   background-color: transparent;

@@ -17,7 +17,7 @@ const colors: Colors = {
 };
 
 export function getColumnColor(columnId: string, weight: number): string {
-  if (columnId === 'todo') return colors[`blue${weight}`];
+  if (columnId === 'toDo') return colors[`blue${weight}`];
   if (columnId === 'inProgress') return colors[`red${weight}`];
   return colors[`black${weight}`];
 }
