@@ -4,13 +4,13 @@ import { Provider } from 'react-redux';
 
 import { render, cleanup } from '@testing-library/react';
 
-import columnsReducer from '../store/columnsReducer';
+import reducer from '../store/reducer';
 
 afterEach(cleanup);
 
 export function renderWithRedux(
   component: React.ReactNode,
-  { initialState, store = createStore(columnsReducer, initialState) }: any = {}
+  { initialState, store = createStore(reducer, initialState) }: any = {}
 ) {
   return {
     ...render(<Provider store={store}>{component}</Provider>),

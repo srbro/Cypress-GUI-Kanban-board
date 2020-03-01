@@ -1,6 +1,6 @@
 import * as uuid from 'uuidv4';
 
-import columnsReducer from '../../store/columnsReducer';
+import reducer from '../../store/reducer';
 import { CREATE_TICKET, DELETE_TICKET, UPDATE_TICKET } from '../../store/types';
 import { StateModel, ActionModel } from '../../models';
 
@@ -38,7 +38,7 @@ it('creates a ticket', () => {
     }
   };
 
-  const state: StateModel = columnsReducer(initialState, action);
+  const state: StateModel = reducer(initialState, action);
 
   expect(state).toEqual({
     ...initialState,
@@ -62,7 +62,7 @@ it('deletes a ticket', () => {
     }
   };
 
-  const state: StateModel = columnsReducer(initialState, action);
+  const state: StateModel = reducer(initialState, action);
 
   expect(state).toEqual({
     ...initialState,
@@ -83,7 +83,7 @@ it('updates a ticket', () => {
     }
   };
 
-  const state: StateModel = columnsReducer(initialState, action);
+  const state: StateModel = reducer(initialState, action);
 
   expect(state).toEqual({
     ...initialState,

@@ -4,7 +4,7 @@ import throttle from 'lodash.throttle';
 
 import { saveState } from './localStorage';
 
-import columnsReducer from './columnsReducer';
+import reducer from './reducer';
 
 const logger = createLogger();
 const composeEnhancers =
@@ -13,7 +13,7 @@ const composeEnhancers =
 const middleware = [logger];
 
 const store = createStore(
-  columnsReducer,
+  reducer,
   composeEnhancers(applyMiddleware(...middleware))
 );
 
