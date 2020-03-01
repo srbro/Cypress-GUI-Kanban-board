@@ -7,6 +7,7 @@ type Props = {
 
 function Draggable({ children, dragData }: Props) {
   const handleDragStart = (event: DragEvent, dragData: string): void => {
+    event.stopPropagation();
     event.dataTransfer.dropEffect = 'move';
     event.dataTransfer?.setData('text/plain', dragData);
   };
