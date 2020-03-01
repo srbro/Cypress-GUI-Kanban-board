@@ -5,6 +5,11 @@ type ContainerProps = {
   columnId: string;
 };
 
+type TextProps = {
+  isEmpty: boolean;
+  columnId: string;
+};
+
 export const Container = styled.div`
   background-color: ${(props: ContainerProps) =>
     getColumnColor(props.columnId, 400)};
@@ -50,4 +55,9 @@ export const DeleteTicketButton = styled.button`
     opacity: 1;
     visibility: visible;
   }
+`;
+
+export const Text = styled.span`
+  color: ${({ isEmpty, columnId }: TextProps) =>
+    isEmpty ? getColumnColor(columnId, 200) : colors.white};
 `;

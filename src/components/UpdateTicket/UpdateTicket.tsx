@@ -11,6 +11,7 @@ type Props = {
   textValue: string;
   setTextValue: (value: string) => void;
   setIsEditable: (value: boolean) => void;
+  isEmpty: boolean;
 };
 
 function UpdateTicket({
@@ -18,7 +19,8 @@ function UpdateTicket({
   ticketId,
   textValue,
   setTextValue,
-  setIsEditable
+  setIsEditable,
+  isEmpty
 }: Props) {
   const dispatch = useDispatch();
   const textareaRef = useRef<any>(null);
@@ -47,9 +49,10 @@ function UpdateTicket({
     <Textarea
       placeholder="Add your text here"
       onKeyDown={handleEnterKey}
-      value={textValue === '[Empty ticket]' ? '' : textValue}
+      value={isEmpty ? '' : textValue}
       onChange={handleChange}
       inputRef={textareaRef}
+      columnid={columnId}
     />
   );
 }

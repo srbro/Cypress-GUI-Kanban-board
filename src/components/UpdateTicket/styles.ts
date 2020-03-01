@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import TextareaAutosize from 'react-textarea-autosize';
 
-import colors from '../../styles/colors';
+import colors, { getColumnColor } from '../../styles/colors';
+
+type TextareaProps = { columnid: string };
 
 export const Textarea = styled(TextareaAutosize)`
   overflow: hidden;
@@ -19,4 +21,12 @@ export const Textarea = styled(TextareaAutosize)`
   font-weight: bold;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  ::placeholder,
+  ::-webkit-input-placeholder {
+    color: ${({ columnid }: TextareaProps) => getColumnColor(columnid, 200)};
+  }
+  :-ms-input-placeholder {
+    color: ${({ columnid }: TextareaProps) => getColumnColor(columnid, 200)};
+  }
 `;

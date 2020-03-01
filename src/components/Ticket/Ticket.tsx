@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
 import useClickAway from '../../hooks/useClickAway';
@@ -7,7 +7,7 @@ import { deleteTicket, updateTicket } from '../../store/actions';
 import UpdateTicket from '../UpdateTicket';
 import Draggable from '../Draggable';
 
-import { Container, DeleteTicketButton } from './styles';
+import { Container, DeleteTicketButton, Text } from './styles';
 
 type Props = {
   columnId: string;
@@ -19,9 +19,8 @@ function Ticket({ columnId, ticketId, text }: Props) {
   const ticketRef = useRef<any>(null);
   const dispatch = useDispatch();
   const [isEditable, setIsEditable] = useState<boolean>(text ? false : true);
+  const [isEmpty, setIsEmpty] = useState<boolean>(false);
   const [textValue, setTextValue] = useState<string>(text);
-
-  console.log(textValue);
 
   const handleDeleteTicket = (): void => {
     dispatch(deleteTicket(ticketId));
@@ -51,6 +50,13 @@ function Ticket({ columnId, ticketId, text }: Props) {
     text
   });
 
+  useEffect(() => {
+    setIsEmpty(false);
+    if (text === '[Empty ticket]') {
+      setIsEmpty(true);
+    }
+  }, [text]);
+
   return (
     <Draggable dragData={dragData}>
       <Container
@@ -74,9 +80,12 @@ function Ticket({ columnId, ticketId, text }: Props) {
             textValue={textValue}
             setTextValue={setTextValue}
             setIsEditable={setIsEditable}
+            isEmpty={isEmpty}
           />
         ) : (
-          text
+          <Text isEmpty={isEmpty} columnId={columnId}>
+            {text}
+          </Text>
         )}
       </Container>
     </Draggable>
