@@ -12,6 +12,7 @@ type Props = {
   setTextValue: (value: string) => void;
   setIsEditable: (value: boolean) => void;
   isEmpty: boolean;
+  setIsEmpty: (isEmpty: boolean) => void;
 };
 
 function UpdateTicket({
@@ -20,12 +21,14 @@ function UpdateTicket({
   textValue,
   setTextValue,
   setIsEditable,
-  isEmpty
+  isEmpty,
+  setIsEmpty
 }: Props) {
   const dispatch = useDispatch();
   const textareaRef = useRef<any>(null);
 
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>): void => {
+    setIsEmpty(false);
     setTextValue(event.target.value);
   };
 

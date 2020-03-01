@@ -81,6 +81,7 @@ function Ticket({ columnId, ticketId, text }: Props) {
             setTextValue={setTextValue}
             setIsEditable={setIsEditable}
             isEmpty={isEmpty}
+            setIsEmpty={setIsEmpty}
           />
         ) : (
           <Text isEmpty={isEmpty} columnId={columnId}>
