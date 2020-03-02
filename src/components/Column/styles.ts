@@ -7,7 +7,7 @@ type HeaderProps = {
 
 type BodyProps = {
   columnId: string;
-  draggedOver: boolean;
+  isDraggedOver: boolean;
 };
 
 export const Container = styled.div`
@@ -71,8 +71,8 @@ export const TicketCount = styled.div`
 `;
 
 export const Body = styled.div<BodyProps>`
-  box-shadow: ${({ draggedOver }) =>
-    draggedOver
+  box-shadow: ${({ isDraggedOver }) =>
+    isDraggedOver
       ? '0px 4px 10px 0px rgba(0, 0, 0, 0.3);'
       : '0px 2px 4px -1px rgba(0, 0, 0, 0.3);'}
   min-height: 40rem;
@@ -84,7 +84,7 @@ export const Body = styled.div<BodyProps>`
   overflow: visible;
   transition: all 0.1s;
   background-color: ${({ columnId }) => getColumnColor(columnId, 200)};
-  opacity: ${({ draggedOver }) => (draggedOver ? '0.7' : '1')};
-  transform: ${({ draggedOver }) =>
-    draggedOver ? 'translateY(-4px)' : 'none'};
+  opacity: ${({ isDraggedOver }) => (isDraggedOver ? '0.7' : '1')};
+  transform: ${({ isDraggedOver }) =>
+    isDraggedOver ? 'translateY(-4px)' : 'none'};
 `;

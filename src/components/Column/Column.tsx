@@ -24,7 +24,7 @@ type Props = {
 
 function Column({ columnId, title, tickets, setSearchTerm }: Props) {
   const dispatch = useDispatch();
-  const [draggedOver, setDraggedOver] = useState<boolean>(false);
+  const [isDraggedOver, setIsDraggedOver] = useState<boolean>(false);
 
   const handleCreateTicket = (): void => {
     setSearchTerm('');
@@ -34,13 +34,13 @@ function Column({ columnId, title, tickets, setSearchTerm }: Props) {
   const onDragOver = (event: DragEvent): void => {
     event.preventDefault();
     event.stopPropagation();
-    setDraggedOver(true);
+    setIsDraggedOver(true);
   };
 
   const onDragLeave = (event: DragEvent): void => {
     event.preventDefault();
     event.stopPropagation();
-    setDraggedOver(false);
+    setIsDraggedOver(false);
   };
 
   const onDrop = (event: any) => {
@@ -56,7 +56,7 @@ function Column({ columnId, title, tickets, setSearchTerm }: Props) {
       dispatch(createTicket(columnId, text));
     }
 
-    setDraggedOver(false);
+    setIsDraggedOver(false);
   };
 
   return (
@@ -78,7 +78,7 @@ function Column({ columnId, title, tickets, setSearchTerm }: Props) {
         <Title>{title}</Title>
         <TicketCount>({tickets.length})</TicketCount>
       </Header>
-      <Body columnId={columnId} draggedOver={draggedOver}>
+      <Body columnId={columnId} isDraggedOver={isDraggedOver}>
         {tickets.map(({ id, text }: TicketModel) => (
           <Fragment key={id}>
             <Ticket columnId={columnId} ticketId={id} text={text} />

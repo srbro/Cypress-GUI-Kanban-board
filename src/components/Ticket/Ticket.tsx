@@ -67,7 +67,7 @@ function Ticket({ columnId, ticketId, text }: Props) {
       >
         <DeleteTicketButton
           type="button"
-          aria-label="Remove a ticket"
+          aria-label="Delete a ticket"
           onClick={handleDeleteTicket}
           data-testid="delete-ticket-button"
         >
