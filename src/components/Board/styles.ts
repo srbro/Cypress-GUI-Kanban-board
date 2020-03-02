@@ -21,7 +21,7 @@ export const BoardContainer = styled.div`
 
   & > * {
     &:not(:last-child) {
-      align-self: flex-end;
+      margin-right: 0.4rem;
     }
   }
 `;
