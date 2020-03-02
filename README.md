@@ -1,10 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 # Kanban Board App
 
-## Demo
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### Visit the app [here](https://milos-kanban-board.netlify.com).
+## Live Demo
+
+Visit the app [here](https://milos-kanban-board.netlify.com).
 
 ## Available Scripts
 
