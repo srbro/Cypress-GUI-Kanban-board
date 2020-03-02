@@ -81,5 +81,36 @@ describe('user interations with the board', () => {
     expect(queryByText('Updated text')).toBeInTheDocument();
   });
 
-  // TODO: test drag and drop
+  it('searches for a ticket', () => {
+    const initialState = {
+      toDo: {
+        id: 'toDo',
+        title: 'To Do',
+        tickets: [
+          {
+            id: '1',
+            text: 'Ticket text 1'
+          },
+          {
+            id: '2',
+            text: 'Ticket text 2'
+          }
+        ]
+      }
+    };
+
+    const { queryByText, getByTestId } = renderWithRedux(<Board />, {
+      initialState
+    });
+
+    expect(queryByText('Ticket text 1')).toBeInTheDocument();
+    expect(queryByText('Ticket text 2')).toBeInTheDocument();
+
+    fireEvent.change(getByTestId('search'), {
+      target: { value: 'ticket text 1' }
+    });
+
+    expect(queryByText('Ticket text 1')).toBeInTheDocument();
+    expect(queryByText('Ticket text 2')).not.toBeInTheDocument();
+  });
 });

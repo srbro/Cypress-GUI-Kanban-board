@@ -19,13 +19,15 @@ type Props = {
   columnId: string;
   title: string;
   tickets: TicketModel[];
+  setSearchTerm: (value: string) => void;
 };
 
-function Column({ columnId, title, tickets }: Props) {
+function Column({ columnId, title, tickets, setSearchTerm }: Props) {
   const dispatch = useDispatch();
   const [draggedOver, setDraggedOver] = useState<boolean>(false);
 
   const handleCreateTicket = (): void => {
+    setSearchTerm('');
     dispatch(createTicket(columnId));
   };
 
