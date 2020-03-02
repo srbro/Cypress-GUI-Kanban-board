@@ -1,6 +1,7 @@
 # Kanban Board App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).<br />
+Tech used: **React** for UI, **Redux** for global state management, **Styled Components** for styling, **Typescript** for type safety, **Prettier** for code formatting.
 
 ## Live Demo
 
