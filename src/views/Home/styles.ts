@@ -29,5 +29,6 @@ export const Separator = styled.hr`
   border-color: ${colors.black600};
   opacity: 0.2;
   border-width: 0.5px;
-  width: 50%;
+  max-width: 75rem;
+  width: 100%;
 `;
