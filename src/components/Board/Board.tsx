@@ -20,6 +20,7 @@ function Board() {
         value={searchTerm}
         onChange={handleSearchChange}
         placeholder="Search"
+        aria-label="Search for a specific ticket"
         data-testid="search"
       />
       <BoardContainer data-testid="board">

@@ -24,7 +24,7 @@ export const Separator = styled.div`
   height: 0.8rem;
 `;
 
-export const Header = styled.div`
+export const Header = styled.div<HeaderProps>`
   position: relative;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.4);
   text-align: center;
@@ -33,8 +33,7 @@ export const Header = styled.div`
   align-items: center;
   padding: 1.6rem 4.8rem;
   margin-bottom: 0.4rem;
-  background-color: ${({ columnId }: HeaderProps) =>
-    getColumnColor(columnId, 600)};
+  background-color: ${({ columnId }) => getColumnColor(columnId, 600)};
 `;
 
 export const AddTicketButton = styled.button`
@@ -71,7 +70,7 @@ export const TicketCount = styled.div`
   user-select: none;
 `;
 
-export const Body = styled.div`
+export const Body = styled.div<BodyProps>`
   box-shadow: ${({ draggedOver }) =>
     draggedOver
       ? '0px 4px 10px 0px rgba(0, 0, 0, 0.3);'
@@ -84,9 +83,8 @@ export const Body = styled.div`
   padding: 1.6rem;
   overflow: visible;
   transition: all 0.1s;
-  background-color: ${({ columnId }: BodyProps) =>
-    getColumnColor(columnId, 200)};
-  opacity: ${({ draggedOver }: BodyProps) => (draggedOver ? '0.7' : '1')};
-  transform: ${({ draggedOver }: BodyProps) =>
+  background-color: ${({ columnId }) => getColumnColor(columnId, 200)};
+  opacity: ${({ draggedOver }) => (draggedOver ? '0.7' : '1')};
+  transform: ${({ draggedOver }) =>
     draggedOver ? 'translateY(-4px)' : 'none'};
 `;

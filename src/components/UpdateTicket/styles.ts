@@ -5,7 +5,7 @@ import colors, { getColumnColor } from '../../styles/colors';
 
 type TextareaProps = { columnid: string };
 
-export const Textarea = styled(TextareaAutosize)`
+export const Textarea = styled(TextareaAutosize)<TextareaProps>`
   overflow: hidden;
   resize: none;
   outline: none;
@@ -24,9 +24,9 @@ export const Textarea = styled(TextareaAutosize)`
 
   ::placeholder,
   ::-webkit-input-placeholder {
-    color: ${({ columnid }: TextareaProps) => getColumnColor(columnid, 200)};
+    color: ${({ columnid }) => getColumnColor(columnid, 200)};
   }
   :-ms-input-placeholder {
-    color: ${({ columnid }: TextareaProps) => getColumnColor(columnid, 200)};
+    color: ${({ columnid }) => getColumnColor(columnid, 200)};
   }
 `;

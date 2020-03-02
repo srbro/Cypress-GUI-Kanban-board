@@ -56,6 +56,7 @@ function UpdateTicket({
       onChange={handleChange}
       inputRef={textareaRef}
       columnid={columnId}
+      aria-label="Add your ticket text here"
     />
   );
 }

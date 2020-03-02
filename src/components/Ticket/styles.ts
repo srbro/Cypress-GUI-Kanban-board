@@ -10,9 +10,8 @@ type TextProps = {
   columnId: string;
 };
 
-export const Container = styled.div`
-  background-color: ${(props: ContainerProps) =>
-    getColumnColor(props.columnId, 400)};
+export const Container = styled.div<ContainerProps>`
+  background-color: ${({ columnId }) => getColumnColor(columnId, 400)};
   padding: 2.4rem;
   font-weight: bold;
   cursor: pointer;
@@ -57,7 +56,7 @@ export const DeleteTicketButton = styled.button`
   }
 `;
 
-export const Text = styled.span`
-  color: ${({ isEmpty, columnId }: TextProps) =>
+export const Text = styled.span<TextProps>`
+  color: ${({ isEmpty, columnId }) =>
     isEmpty ? getColumnColor(columnId, 200) : colors.white};
 `;
