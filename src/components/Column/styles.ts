@@ -72,7 +72,10 @@ export const TicketCount = styled.div`
 `;
 
 export const Body = styled.div`
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: ${({ draggedOver }) =>
+    draggedOver
+      ? '0px 4px 10px 0px rgba(0, 0, 0, 0.3);'
+      : '0px 2px 4px -1px rgba(0, 0, 0, 0.3);'}
   min-height: 40rem;
   height: 100%;
   display: flex;
@@ -80,8 +83,10 @@ export const Body = styled.div`
   align-items: center;
   padding: 1.6rem;
   overflow: visible;
-  transition: all 0.2s;
+  transition: all 0.1s;
   background-color: ${({ columnId }: BodyProps) =>
     getColumnColor(columnId, 200)};
-  opacity: ${({ draggedOver }: BodyProps) => (draggedOver ? '0.75' : '1')};
+  opacity: ${({ draggedOver }: BodyProps) => (draggedOver ? '0.7' : '1')};
+  transform: ${({ draggedOver }: BodyProps) =>
+    draggedOver ? 'translateY(-4px)' : 'none'};
 `;

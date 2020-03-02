@@ -14,6 +14,7 @@ export const BoardContainer = styled.div`
   max-width: 75rem;
   overflow-x: auto;
   margin-top: 2.4rem;
+  padding-bottom: 3.2rem;
 
   &::-webkit-scrollbar {
     display: none;
