@@ -1,6 +1,6 @@
 import { StateModel } from '../models';
 
-export const loadState = () => {
+export const loadState = (): any => {
   try {
     const serializedState: string | null = localStorage.getItem('state');
 
@@ -14,7 +14,7 @@ export const loadState = () => {
   }
 };
 
-export const saveState = (state: StateModel) => {
+export const saveState = (state: StateModel): void => {
   try {
     const serializedState: string = JSON.stringify(state);
 

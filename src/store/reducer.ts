@@ -47,7 +47,7 @@ export default function(
     case DELETE_TICKET: {
       const { ticketId } = action.payload;
       const { id: columnId } = Object.values(state).find(column =>
-        column.tickets.find((ticket: TicketModel) => ticket.id === ticketId)
+        column.tickets.find(({ id }: TicketModel) => id === ticketId)
       );
 
       return {
