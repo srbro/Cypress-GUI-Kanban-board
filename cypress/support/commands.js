@@ -146,3 +146,31 @@ Cypress.Commands.add('dragDrop', (column, text) => {
             })
         })
 })
+
+// Edit existing ticket
+// Double click on the ticket and append the text
+// "column"(string) - expect ticket in this column, when asseting
+// "inputText" - search ticket that has this text (any from existing tickets)  
+// "editText" - text that will be typed/appended to the text of the searched ticket
+// "ticketIndex" - when asserting, this is the number of the ticket (edited ticket), in the column, from top to bottom (ex. if you have 4 tickets in column and you want to edit the last one in the bottom, you'll put number 4)
+Cypress.Commands.add('editTicket', (column, inputText, editText, ticketIndex) => {
+    cy.get('h2')
+        .contains(column)
+        .parents('[data-testid="column"]')
+        .find('span')
+        .contains(inputText)
+        .dblclick()
+        .get('textarea')
+        .contains(inputText)
+        .type(editText+'{enter}')
+    cy.get('h2')
+        .contains(column)
+        .parent()
+        .siblings()
+        .find('[data-testid="ticket"]')
+        .then( ticket => {
+            cy.wrap(ticket[ticketIndex-1])
+            .find('.sc-AxhCb')
+            .should('have.text', inputText+editText)
+        })
+})
