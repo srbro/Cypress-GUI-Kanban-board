@@ -6,6 +6,11 @@ Execute tests:
 - In the top right choose between web browsers
 - In the list of INTEGRATION TESTS, click on any of the tests to execute it in the browser
 
+Plugins and libraries:
+- lodash.js - https://lodash.com/
+- Drag and Drop - https://github.com/4teamwork/cypress-drag-drop
+- Real events - https://github.com/dmtrKovalenko/cypress-real-events
+
 Commands created:
 - newTicket (column, text, color)
 - ticketsExistInColumn (column, text, numOfTickets, color)

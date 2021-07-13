@@ -174,3 +174,17 @@ Cypress.Commands.add('editTicket', (column, inputText, editText, ticketIndex) =>
             .should('have.text', inputText+editText)
         })
 })
+
+// Hover the ticket with provided "text"(string)
+// Working if all the tickets on the board have unique text
+Cypress.Commands.add('hoverTicket', (text) => {
+    cy.get('span')
+            .contains(text)
+            .parent()
+            .find('button')
+            .should('not.be.visible')
+            .parent()
+            .realHover()
+            .find('button')
+            .should('be.visible')
+})
