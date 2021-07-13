@@ -42,7 +42,7 @@ describe('Test editing several tickets', () => {
 
     })
 
-    it.only('Edit 1 ticket in To Do -> Drag it to In Progress and edit it -> Drag it to Done and edit it', () => {
+    it('Edit 1 ticket in To Do -> Drag it to In Progress and edit it -> Drag it to Done and edit it', () => {
         // Edit ticket in To Do, drag it to In Progress
         cy.editTicket(selectors.column1.title, selectors.column1.title+inputText+'2', editText, 2)
         cy.dragDrop(selectors.column2.title, selectors.column1.title+inputText+'2'+editText)

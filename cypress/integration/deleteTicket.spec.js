@@ -38,7 +38,7 @@ describe('Test hovering and deleting ticket', () => {
         cy.hoverTicket(selectors.column3.title+inputText+'1')
     })
 
-    it.only('Click on "x" button deletes the corresponding ticket', () => {
+    it('Click on "x" button deletes the corresponding ticket', () => {
         cy.hoverTicket(selectors.column1.title+inputText+'2').click()
         cy.hoverTicket(selectors.column2.title+inputText+'1').click()
         cy.hoverTicket(selectors.column3.title+inputText+'2').click()

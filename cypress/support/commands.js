@@ -188,3 +188,20 @@ Cypress.Commands.add('hoverTicket', (text) => {
             .find('button')
             .should('be.visible')
 })
+
+// not working because when no '[data-testid="ticket"]' are found, cy.get('[data-testid="ticket"]') is trying to find it :(  ..will invest some extra time to investigation :) 
+// Cypress.Commands.add('searchAndAssert', (searchTerm)=>{
+//     cy.get('[data-testid="search"]').type('{selectAll}'+searchTerm)
+//     cy.get('[data-testid="ticket"]')
+//         .then(ticket=>{
+//             if(ticket.length !== 0){
+//                 cy.wrap(ticket).each(ticket=>{
+//                     cy.wrap(ticket).should('contain', searchTerm)
+
+//                 })
+//             }
+//             else{
+//                 cy.wrap(ticket).should('not.exist')
+//             }
+//         })
+// })

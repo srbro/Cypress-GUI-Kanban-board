@@ -8,7 +8,7 @@ Execute tests:
 
 Plugins and libraries:
 - lodash.js - https://lodash.com/
-- Drag and Drop - https://github.com/4teamwork/cypress-drag-drop
+- Drag and Drop - https://github.com/4teamwork/cypress-drag-drop - npm install --save-dev @4tw/cypress-drag-drop
 - Real events - https://github.com/dmtrKovalenko/cypress-real-events
 
 Commands created:

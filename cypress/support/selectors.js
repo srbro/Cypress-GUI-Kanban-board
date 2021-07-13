@@ -10,5 +10,7 @@ export default {
     column3 : {
         title:"Done",
         color: 'rgb(76, 94, 116)'
-    }
+    },
+    search : '[data-testid="search"]',
+    ticket : '[data-testid="ticket"]'
 }
