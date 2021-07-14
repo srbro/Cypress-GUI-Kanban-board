@@ -5,6 +5,7 @@ Execute tests:
 - To run Cypress GUI -> npx cypress open
 - In the top right choose between web browsers
 - In the list of INTEGRATION TESTS, click on any of the tests to execute it in the browser
+- deleteTicket.js fails in Firefox, as cypress-real-events (hovering) supports only Chrome
 
 Plugins and libraries:
 - lodash.js - https://lodash.com/

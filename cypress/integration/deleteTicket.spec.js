@@ -29,7 +29,7 @@ describe('Test hovering and deleting ticket', () => {
             ], 2, selectors.column3.color)
     })
 
-    it.only('Hovering the ticket, "x" button appears', () => {
+    it('Hovering the ticket, "x" button appears', () => {
         cy.hoverTicket(selectors.column1.title+inputText+'3')
         cy.hoverTicket(selectors.column1.title+inputText+'2')
         cy.hoverTicket(selectors.column1.title+inputText+'1')
