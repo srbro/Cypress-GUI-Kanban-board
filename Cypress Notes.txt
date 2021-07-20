@@ -1,0 +1,44 @@
+Cypress install:
+- Create git repo in any folder
+- Bash - navigate to the folder and paste command npm init -> package.json is created
+- Bash - npm install cypress --save-dev -> node modules folder and package-lock.json are created
+- Bash - npx cypress open (first time opening Cypres Test Runner GUI) -> cypress folder and cypress.json are created and Cypress Test Runner is launched with example tests (INTEGRATION / <2 folders>)
+- Cypress GUI - click on the first test in the list "todo.spec.js" -> test is running
+
+Percy install:
+- Follow these instructions: https://docs.percy.io/docs/cypress   Bash: npm install --save-dev @percy/cli @percy/cypress  ->  cypress/support/index.js - add this: import '@percy/cypress';
+- go to https://percy.io and create account
+- create new project and save the token
+- Command Promt (or Node) - in the root folder and paste this command  $env:PERCY_TOKEN='<token value>' (for Windows users)(bash - export instead of set) -> check all tokens/sysVars - cmd promt: set   powershell: Get-ChildItem Env:   git bash: export
+- // in the spec test add this command at the place you want to take a snapshot
+    cy.percySnapshot();
+- To run exploratory.spec.js: npx percy exec -- cypress run --spec "cypress/integration/exploratory.spec.js" - first time run will download/install chromium and run cypress through percy
+- Check your project on https://percy.io/ - Build is created and first test result is visible
+
+Percy Troubleshooting:
+- To disable uncaught errors from the app (https://docs.cypress.io/api/events/catalog-of-events#Uncaught-Exceptions)
+// likely want to do this in a support file
+// so it's applied to all spec files
+// cypress/support/index.js
+Cypress.on('uncaught:exception', (err, runnable) => {
+  // returning false here prevents Cypress from
+  // failing the test
+  return false
+})
+
+
+
+set PERCY_TOKEN=c467ab617b4a4416feb83296ee5b46e0a43cf7e23913e61ff52b4a40a4e56b5b
+
+
+aSjq4RR6fqnq^H@Dcr406As(
+
+
+Git setting 
+git config --global user.name "FIRST_NAME LAST_NAME"
+git config --global user.email "MY_NAME@example.com"
+
+commit msg -> :xq
+
+
+HTTP_PROXY="http://mis1bg:-098poi-098lkj@rb-proxy-de.bosch.com:8080"
