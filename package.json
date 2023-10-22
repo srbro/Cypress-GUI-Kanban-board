@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "cypress": "^8.4.0",
     "cypress-real-events": "^1.5.0"
   },
   "devDependencies": {
-    "@4tw/cypress-drag-drop": "^1.6.0"
+    "@4tw/cypress-drag-drop": "^1.6.0",
+    "cypress": "^13.3.2"
   }
 }
